@@ -17,11 +17,11 @@ var imageArray =["Bulbasaur.jpg","Jigglypuff.jpg","Pikachu.png","Bayleef.jpg","B
 for(i=0;i<=pokemonrepository.length;i++)
 {
 
-  document.write('<p>' + pokemonrepository[i].name + '(height:'  + pokemonrepository[i].height +  ')</p>')
-  if(pokemonrepository[i].rank === 153)
+  document.write('<p>' + pokemonrepository[i].name + '(height:'  + pokemonrepository[i].height +  ') </p>')
+  if(pokemonrepository[i].rank === 1)
   {
-    document.write( "Wow thats big!!!!!")
-    
+    document.write( "Wow!! We have a winner.")
+
     //document.write('<p>' + pokemonrepository[i].name '</p>')
   //  document.write('<p>' + imageArray[i].src +  '</p>')
      }
