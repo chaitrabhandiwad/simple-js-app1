@@ -1,11 +1,57 @@
-body{
-background-color: #ffe5b4;
-  margin: 0;
-  padding: 15px;
-  width: 100%;
+* {
+  box-sizing: border-box;
 }
 
-*{
-  margin: 0;
-  padding: 0;
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+header {
+  margin: 20px;
+}
+/* Grid fallback*/
+
+.grid__item {
+  display: inline-block;
+  width: 33%;
+}
+
+/* Styling CSS grid*/
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  padding: 20px;
+}
+
+.grid__item {
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
+  background-color: lightblue;
+  color: #fff;
+}
+
+.grid_item_darken {
+  width: auto;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 19px 0px rgba(0, 0, 0, 0.3);
+  background-color: rgb(82, 158, 184);
+  color: #fff;
+}
+
+.grid__item:hover,
+.grid_item_darken:hover {
+  box-shadow: none;
 }
