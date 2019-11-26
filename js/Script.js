@@ -1,32 +1,65 @@
 
-var pokemonrepository = [
-  { name: "Bulbasaur",moves:['poisonpowder','leechseed'], height:1,rank:1},
-  { name: "Jigglypuff",moves: ['sing','quiverattack'], height:1, rank:39},
-  { name: "Pikachu", moves: ['electricshock','thundervolt'], height:1, rank:25},
-  { name:"Bayleef", moves:['rasorleaf','quiverattack'], height:1, rank:153},
-  { name:"Butterfree", moves:['confusion','whirlwind'], height:1, rank:12},
-  { name:"Charmander", moves:['fireball','inferno'], height:4, rank:4},
-  { name:"Squirtel", moves:['waterspray','watercyclone'], height:1, rank:6}
-];
-/*
-var myImage = document.getElementByid('mainImage');
-var imageArray =["Bulbasaur.jpg","Jigglypuff.jpg","Pikachu.png","Bayleef.jpg","Butterfree.jpg","Charmander.jpg","Squirtel.jpg"];*/
+var pokemonrepository = (function () {
+  var repository = [
+    { name: "Bulbasaur",
+      moves:['poisonpowder','leechseed'],
+      height:1,rank:1
+    },
+    { name: "Jigglypuff",
+      moves: ['sing','quiverattack'],
+      height:1, rank:39
+    },
+    { name: "Pikachu",
+      moves: ['electricshock','thundervolt'],
+      height:1, rank:25
+    },
+    { name:"Bayleef",
+      moves:['rasorleaf','quiverattack'],
+      height:1, rank:153
+    },
+    { name:"Butterfree",
+      moves:['confusion','whirlwind'],
+      height:1, rank:12
+    },
+    { name:"Charmander",
+      moves:['fireball','inferno'],
+      height:4, rank:4
+    },
+    { name:"Squirtel",
+      moves:['waterspray','watercyclone'],
+      height:1, rank:6
+    }
+  ];
 
-//myImage.setAttribute("src", imageArray[1]);
-/*
-for(i=0;i<=pokemonrepository.length;i++)
-{
+  function add(pokemon) {
+    if (
+     Object.prototype.toString.call(pokemon) === "[object Object]" &&
+     Object.keys(pokemon).length === 3
+   ) {
+     repository.push(pokemon);
+   } else {
+     return "Invaid Entry";
+   }
+ }
 
-  document.write('<p>' + pokemonrepository[i].name + '(height:'  + pokemonrepository[i].height +  ') </p>')
-  if(pokemonrepository[i].rank === 1)
-  {
-    document.write( "Wow!! We have a winner.")
 
-    //document.write('<p>' + pokemonrepository[i].name '</p>')
-  //  document.write('<p>' + imageArray[i].src +  '</p>')
-     }
-}*/
-pokemonrepository.forEach(function(currentPokemon) {
+  function getAll() {
+    return repository;
+  }
+
+  return {
+    add: add,
+    getAll: getAll
+  };
+})();
+
+pokemonrepository.add({
+  name: "Charizard",
+  moves: ["Flames"],
+  height: 1, rank:25
+});
+
+pokemonrepository.getAll().forEach(function(currentPokemon) {
   var pokemon = document.createElement("div");
 
   var pokemonTitle = document.createElement("h1");
