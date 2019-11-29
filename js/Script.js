@@ -31,7 +31,7 @@ var pokemonrepository = (function () {
     }
   ];
 
-  function add(pokemon) {
+  /*function add(pokemon) {
     if (
      Object.prototype.toString.call(pokemon) === "[object Object]" &&
      Object.keys(pokemon).length === 3
@@ -42,41 +42,46 @@ var pokemonrepository = (function () {
    }
  }
 
-
-  function getAll() {
-    return repository;
-  }
-
-  return {
-    add: add,
-    getAll: getAll
-  };
-})();
-
 pokemonrepository.add({
   name: "Charizard",
   moves: ["Flames"],
   height: 1, rank:25
-});
+});*/
 
-pokemonrepository.getAll().forEach(function(currentPokemon) {
-  var pokemon = document.createElement("div");
+//Function to add list for each pokemon object
+function addListItem(pokemon) {
+  var $pokemonList = document.querySelector("ul");
+  var $listItem = document.createElement("li");
+  var $button = document.createElement("button");
 
-  var pokemonTitle = document.createElement("h1");
-  if (currentPokemon.height > 3) {
-    pokemonTitle.textContent =
-      currentPokemon.name +
-      " (height: " +
-      currentPokemon.height +
-      ") " +
-      "- Wow, that's big! ')";
-    pokemon.setAttribute("class", "grid_item_darken");
-  } else {
-    pokemonTitle.textContent =
-      currentPokemon.name + " (height: " + currentPokemon.height + ")";
-    pokemon.setAttribute("class", "grid__item");
-  }
+  $button.innerText = pokemon.name;
+  $button.classList.add("list-button");
+  $pokemonList.appendChild($listItem);
+  $listItem.appendChild($button)
+  addListener($button, pokemon);
+}
 
-  document.getElementById("pokemon-container").appendChild(pokemon);
-  pokemon.appendChild(pokemonTitle);
+function addListener(button, pokemon) {
+  button.addEventListener("click", () => {
+    showDetails(pokemon);
+  });
+}
+
+function showDetails(pokemon) {
+  console.log(pokemon);
+}
+
+function getAll() {
+  return repository;
+}
+
+return {
+  addListItem: addListItem,
+  getAll: getAll
+};
+})();
+
+
+pokemonrepository.getAll().forEach(pokemon => {
+pokemonrepository.addListItem(pokemon);
 });
