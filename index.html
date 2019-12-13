@@ -5,32 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Simple JS App</title>
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
 
-  <body>
-    <header>
-        <h1>
-          Pokemon
-        </h1>
+  <header class="page-header">
+      <img src="img/logo.png" alt="Personal logo for Pokedex">
     </header>
-        <ul class="pokemon-list"></ul>
-
-    <div class="overlay">
-    <div class='modal'>
-      <button class="modal-close">Close</button>
-      <h1 class="pokemon-name"></h1>
-      <img class="pokemon-img" src="" alt="">
-      <p class="height">Height: <span class="pokemon-height"></span></p>
+        <div class="wrapper">
+      <ul class="pokemon-list"></ul>
     </div>
-  </div>
-    <script src="js/Script.js"></script>
+    <div id="modal-container"></div>
     <script src="js/promise-polyfill.js"></script>
+    <script src="js/fetch-polyfill.js"></script>
+    <script src="js/Script.js"></script>
   </body>
 </html>
